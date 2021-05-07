@@ -7,8 +7,12 @@ imports:
  - include_core
 prefixes:
   biolinkml: https://w3id.org/biolink/biolinkml/
-  my_schema: https://w3id.org/mixs/include_schema/
+  include_schema: https://w3id.org/mixs/include_schema/
 default_prefix: include_schema
+
+######
+# slots
+######
 
 slots:
   name:
@@ -91,11 +95,26 @@ slots:
   subject:
     description: A person
     range: nodeIdentifier
-    multivalued: true
 
-  id:
-    description: Unique identifier
-    identifier: true
+  sample date:
+    description: Date on which a sample was collected
+    range: date
+
+  visit date:
+    description: Date on which a visit occurred
+    range: date
+
+  parent sample:
+    description: Sample from which another sample was derived
+    range: nodeIdentifier
+
+  sample type:
+    description: Type of sample
+    range: sample_enum
+
+######
+# classes
+######
 
 classes:
   person:
@@ -128,6 +147,12 @@ classes:
     slots:
       - id
       - subject
+      - sample date
+      - parent sample
+      - sample type
+      slot_usage:
+        subject:
+          required: true
 
   visit:
     is_a: named thing
@@ -135,6 +160,14 @@ classes:
       - id
       - subject
       - sample
+      - visit date
+    slot_usage:
+      subject:
+        required: true
+
+######
+# enums
+######
 
 enums:
   gender_enum:
@@ -181,3 +214,9 @@ enums:
       1: Group home
       2: Independent living
       3: Facility
+
+  sample_enum:
+    description: Type of material sample
+      0: Blood
+      1: Urine
+      2: Stool

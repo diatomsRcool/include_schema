@@ -94,7 +94,7 @@ slots:
 
   subject:
     description: A person
-    range: nodeIdentifier
+    range: subject
 
   sample date:
     description: Date on which a sample was collected
@@ -106,7 +106,7 @@ slots:
 
   parent sample:
     description: Sample from which another sample was derived
-    range: nodeIdentifier
+    range: sample
 
   sample type:
     description: Type of sample
@@ -123,7 +123,6 @@ classes:
   subject:
     is_a: person
     slots:
-      - id
       - first name
       - middle name
       - last name
@@ -145,7 +144,6 @@ classes:
   sample:
     is_a: named thing
     slots:
-      - id
       - subject
       - sample date
       - parent sample
@@ -157,7 +155,6 @@ classes:
   visit:
     is_a: named thing
     slots:
-      - id
       - subject
       - sample
       - visit date

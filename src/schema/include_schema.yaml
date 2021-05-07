@@ -1,10 +1,15 @@
 id: https://w3id.org/include_schema
 name: include_schema
 description: >-
-  INCLUDE Schema Description
+  INCLUDE Schema prototype
+
+license: https://creativecommons.org/publicdomain/zero/1.0/
+version: 0.0.1
+
 imports:
  - biolinkml:types
  - include_core
+
 prefixes:
   biolinkml: https://w3id.org/biolink/biolinkml/
   include_schema: https://w3id.org/mixs/include_schema/

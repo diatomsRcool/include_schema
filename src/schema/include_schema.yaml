@@ -83,10 +83,28 @@ slots:
     description: The age of the father when the subject was born
     range: integer
 
-classes:
+  sample:
+    description: Material collected from the subject
+    range: nodeIdentifier
+    multivalued: true
+
   subject:
+    description: A person
+    range: nodeIdentifier
+    multivalued: true
+
+  id:
+    description: Unique identifier
+    identifier: true
+
+classes:
+  person:
     is_a: named thing
+
+  subject:
+    is_a: person
     slots:
+      - id
       - first name
       - middle name
       - last name
@@ -104,6 +122,19 @@ classes:
       - residence
       - age of mother at birth
       - age of father at birth
+
+  sample:
+    is_a: named thing
+    slots:
+      - id
+      - subject
+
+  visit:
+    is_a: named thing
+    slots:
+      - id
+      - subject
+      - sample
 
 enums:
   gender_enum:

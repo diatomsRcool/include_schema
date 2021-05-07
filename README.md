@@ -1,4 +1,6 @@
-# Template for LinkML schema repos
+# INCLUDE schema
+
+Test LinkML-based schema for INCLUDE project
 
 ## What is this?
 

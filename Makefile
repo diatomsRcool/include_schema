@@ -59,7 +59,7 @@ target/python/%.py: $(SCHEMA_DIR)/%.yaml  tdir-python
 
 ###  -- MARKDOWN DOCS --
 # TODO: modularize imports. For now imports are merged.
-gen-graphql:target/graphql/$(SCHEMA_NAME).graphql 
+gen-graphql: $(patsubst %, target/graphql/%.graphql, $(SCHEMA_NAMES))
 target/graphql/%.graphql: $(SCHEMA_DIR)/%.yaml tdir-graphql
 	gen-graphql $(GEN_OPTS) $< > $@
 

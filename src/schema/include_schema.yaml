@@ -153,9 +153,9 @@ classes:
       - sample date
       - parent sample
       - sample type
-      slot_usage:
-        subject:
-          required: true
+    slot_usage:
+    subject:
+      required: true
 
   visit:
     is_a: named thing
@@ -193,6 +193,7 @@ enums:
 
   ethnicity_enum:
     description: Ethnicity of something
+    permissible values:
       0: Hispanic or latino
       1: Not Hispanic or Latino
       2: Unsure
@@ -200,18 +201,21 @@ enums:
 
   handedness_enum:
     description: Side of dominant hand of a person
+    permissible values:
       0: Right handed
       1: Left handed
       2: Ambidextrous
 
   language_enum:
     description: Human language
+    permissible values:
       0: English
       1: Spanish
       2: Other
 
   residence_enum:
     description: A living arrangement
+    permissible values:
       0: With family/caregiver
       1: Group home
       2: Independent living
@@ -219,6 +223,7 @@ enums:
 
   sample_enum:
     description: Type of material sample
+    permissible values:
       0: Blood
       1: Urine
       2: Stool

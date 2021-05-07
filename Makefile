@@ -65,9 +65,9 @@ target/graphql/%.graphql: $(SCHEMA_DIR)/%.yaml tdir-graphql
 
 ###  -- JSON schema --
 # TODO: modularize imports. For now imports are merged.
-gen-jsonschema: target/jsonschema/$(SCHEMA_NAME).schema.json
+gen-jsonschema: $(patsubst %, target/jsonschema/%.schema.json, $(SCHEMA_NAMES))
 target/jsonschema/%.schema.json: $(SCHEMA_DIR)/%.yaml tdir-jsonschema
-	gen-json-schema $(GEN_OPTS) -t transaction $< > $@
+	gen-jsonschema $(GEN_OPTS) -t transaction $< > $@
 
 ###  -- Shex --
 # one file per module

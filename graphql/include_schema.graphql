@@ -1,0 +1,50 @@
+type NamedThing
+  {
+    id: String!
+  }
+
+type Person
+  {
+    id: String!
+  }
+
+type Sample
+  {
+    id: String!
+    subject: Subject!
+    sampleDate: Date
+    parentSample: Sample
+    sampleType: SampleEnum
+  }
+
+type Subject
+  {
+    id: String!
+    firstName: String
+    middleName: String
+    lastName: String
+    dob: Date
+    birthMonth: Integer
+    birthYear: Integer
+    birthCity: String
+    birthCountry: String
+    sex: GenderEnum
+    race: RaceEnum
+    ethnicity: EthnicityEnum
+    handedness: HandednessEnum
+    primaryLanguage: LanguageEnum
+    otherLanguage: LanguageEnum
+    residence: ResidenceEnum
+    ageOfMotherAtBirth: Integer
+    ageOfFatherAtBirth: Integer
+  }
+
+type Visit
+  {
+    id: String!
+    subject: Subject!
+    sample: [String]
+    visitDate: Date
+  }
+
+

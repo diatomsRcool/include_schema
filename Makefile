@@ -5,7 +5,7 @@ SCHEMA_NAMES = $(patsubst $(SCHEMA_DIR)/%.yaml, %, $(SOURCE_FILES))
 
 SCHEMA_NAME = include_schema
 SCHEMA_SRC = $(SCHEMA_DIR)/$(SCHEMA_NAME).yaml
-TGTS = graphql jsonschema docs shex owl csv graphql python
+TGTS = graphql jsonschema docs  owl python
 
 #GEN_OPTS = --no-mergeimports
 GEN_OPTS = 
@@ -67,7 +67,7 @@ target/graphql/%.graphql: $(SCHEMA_DIR)/%.yaml tdir-graphql
 # TODO: modularize imports. For now imports are merged.
 gen-jsonschema: $(patsubst %, target/jsonschema/%.schema.json, $(SCHEMA_NAMES))
 target/jsonschema/%.schema.json: $(SCHEMA_DIR)/%.yaml tdir-jsonschema
-	gen-jsonschema $(GEN_OPTS) -t transaction $< > $@
+	gen-json-schema $(GEN_OPTS) -t transaction $< > $@
 
 ###  -- Shex --
 # one file per module
